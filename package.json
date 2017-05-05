@@ -4,6 +4,9 @@
   "description": "Evernotes Clone",
   "main": "index.js",
   "scripts": {
+    "server": "http-server ./dist",
+    "presass": "cp ./src/index.html ./dist/",
+    "sass": "node-sass ./src/scss/main.scss --include-path ./src/scss/ --include-path ./node_modules/bootstrap-sass/assets/stylesheets/ -o ./dist/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +18,13 @@
   "bugs": {
     "url": "https://github.com/luisdanielmv/BrainNotes/issues"
   },
-  "homepage": "https://github.com/luisdanielmv/BrainNotes#readme"
+  "homepage": "https://github.com/luisdanielmv/BrainNotes#readme",
+  "devDependencies": {
+    "http-server": "^0.10.0",
+    "node-sass": "^4.5.2"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "mdi": "^1.9.33"
+  }
 }
