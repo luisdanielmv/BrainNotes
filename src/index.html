@@ -6,26 +6,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SASS Project Architecture</title>
-
   <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-  <h1>SASS Project Architecture</h1>
-  <header></header>
-    <main>
-      <nav>
-        <ul>
-          <li><i class="mdi mdi-bell"></i> </li>
-          <li><i class="mdi mdi-robot"></i> </li>
-          <li><i class="mdi mdi-note"></i> </li>
-          <li><i class="mdi mdi-tag"></i> </li>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
         </ul>
-      </nav>
-    </main>
-    <footer>
-      
-    </footer>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <h1><i class="mdi mdi-bell"></i></h1>
+    </div>
+  </main>
+  <footer>
+  </footer>
 </body>
 
 </html>
