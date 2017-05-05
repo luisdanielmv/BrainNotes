@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "server": "http-server ./dist",
-    "presass": "cp ./src/index.html ./dist/",
-    "sass": "node-sass ./src/scss/main.scss --include-path ./src/scss/ --include-path ./node_modules/bootstrap-sass/assets/stylesheets/ -o ./dist/css/",
+    "presass": "cp ./src/index.html ./dist/ && cp -R node_modules/mdi/fonts ./dist/fonts",
+    "sass": "node-sass ./src/scss/main.scss --include-path ./src/scss/ --include-path ./node_modules/bootstrap-sass/assets/stylesheets/ --include-path ./node_modules/mdi/scss/ -o ./dist/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
