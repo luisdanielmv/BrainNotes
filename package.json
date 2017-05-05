@@ -3,9 +3,22 @@
   "version": "1.0.0",
   "description": "Evernotes Clone",
   "main": "index.js",
+  "config":{
+    "port":"8080"
+  },
   "scripts": {
-    "server": "http-server ./dist",
-    "presass": "cp ./src/index.html ./dist/",
+    "prestart": "npm run lint && npm run build",
+    "start": "npm run server",
+    "poststart": "",
+    "lint": "npm-run-all lint:*",
+    "lint:css": "stylelint ./dist/*.css",
+    "prebuild": "rimraf ./dist/",
+    "build": "npm-run-all build:*",
+    "build:html": "cp ./src/index.html ./dist/",
+    "build:css": "sass",
+    "server": "npm-run-all --parallel server:*",
+    "server:create":"cross-var http-server public/$npm_package_version -p $npm_package_config_port",
+    "server:launch":"cross-var opn http://localhost:$npm_package_config_port",
     "sass": "node-sass ./src/scss/main.scss --include-path ./src/scss/ --include-path ./node_modules/bootstrap-sass/assets/stylesheets/ -o ./dist/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,8 +33,13 @@
   },
   "homepage": "https://github.com/luisdanielmv/BrainNotes#readme",
   "devDependencies": {
+    "cross-var": "^1.0.3",
+    "eslint": "^3.19.0",
     "http-server": "^0.10.0",
-    "node-sass": "^4.5.2"
+    "node-sass": "^4.5.2",
+    "npm-run-all": "^4.0.2",
+    "rimraf": "^2.6.1",
+    "stylelint": "^7.10.1"
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
