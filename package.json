@@ -21,7 +21,7 @@
     "server:create": "cross-var http-server public/$npm_package_version -p $npm_package_config_port",
     "server:launch": "cross-var opn http://localhost:$npm_package_config_port",
     "sass": "node-sass ./src/scss/main.scss --include-path ./src/scss/ --include-path ./node_modules/bootstrap-sass/assets/stylesheets/ -o ./dist/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no TEST specified\" && exit 1"
   },
   "repository": {
     "type": "git",
