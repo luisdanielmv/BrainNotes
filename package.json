@@ -1,0 +1,19 @@
+{
+  "name": "brainnotes",
+  "version": "1.0.0",
+  "description": "Evernotes Clone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisdanielmv/BrainNotes.git"
+  },
+  "author": "Daniel Morales, Melvin Salas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luisdanielmv/BrainNotes/issues"
+  },
+  "homepage": "https://github.com/luisdanielmv/BrainNotes#readme"
+}
