@@ -16,7 +16,7 @@
     "prebuild": "rimraf ./dist/ && mkdir dist",
     "build": "npm-run-all build:*",
     "build:html": "cp ./src/index.html ./dist/",
-    "build:css": "sass",
+    "build:css": "npm run sass",
     "server": "npm-run-all --parallel server:*",
     "server:create": "cross-var http-server public/$npm_package_version -p $npm_package_config_port",
     "server:launch": "cross-var opn http://localhost:$npm_package_config_port",
@@ -41,7 +41,8 @@
     "npm-run-all": "^4.0.2",
     "onchange": "^3.2.1",
     "rimraf": "^2.6.1",
-    "stylelint": "^7.10.1"
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "^16.0.0"
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
