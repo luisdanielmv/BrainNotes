@@ -42,12 +42,12 @@
     "npm-run-all": "^4.0.2",
     "onchange": "^3.2.1",
     "opn-cli": "^3.1.0",
-    "rimraf": "^2.6.1",
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0"
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
-    "mdi": "^1.9.33"
+    "mdi": "^1.9.33",
+    "rimraf": "^2.6.1"
   }
 }
