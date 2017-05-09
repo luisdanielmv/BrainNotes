@@ -18,7 +18,7 @@
     "build": "npm-run-all build:*",
     "build:html": "cp ./src/index.html ./dist/",
     "build:css": "npm run sass",
-    "build:js": "uglifyjs ./node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js -o ./dist/js/main.js",
+    "build:js": "uglifyjs ./src/js/jquery-3.2.1.min.js  ./node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js -o ./dist/js/main.js",
     "server": "npm-run-all --parallel server:*",
     "server:create": "cross-var http-server ./dist/ -p $npm_package_config_port",
     "server:launch": "cross-var opn http://localhost:$npm_package_config_port",
