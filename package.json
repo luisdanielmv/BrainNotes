@@ -9,11 +9,13 @@
   "scripts": {
     "prestart": "npm run build && npm run lint",
     "start": "npm run server",
+
     "lint": "npm-run-all lint:*",
     "lint:css": "stylelint ./dist/css/*.css",
     "lint:js": "stylelint ./dist/css/*.css",
-    "watch": "npm-run-all --parallel watch",
+    "watch": "npm-run-all --parallel watch:*",
     "watch:lint": "onchange \"src/**/*.scss\" -- npm run lint",
+    "watch:changes": "onchange \"src/**/*.scss\" -- npm run build",
     "prebuild": "rimraf ./dist/ && mkdir -p dist/css && mkdir -p dist/js",
     "build": "npm-run-all build:*",
     "build:html": "cp ./src/index.html ./dist/ && cp ./src/favicon.ico ./dist/ ",
