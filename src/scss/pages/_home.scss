@@ -2,3 +2,13 @@
 .home {
   background-color: $brand-color;
 }
+
+.section-notes {
+  height: calc(100vh - 132px);
+  overflow: scroll;
+}
+
+.section-display {
+  height: calc(100vh - 172px);
+  overflow: scroll;
+}
