@@ -1,0 +1,57 @@
+// Navbar specific styles
+
+.navbar-inverse {
+    background-color: $primary-color;
+    border-radius: 0;
+    border-color: $dark-primary-color;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: $light-primary-color;
+}
+.navbar-inverse .navbar-brand {
+    color: $light-primary-color;
+}
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:hover,
+.navbar-inverse .navbar-nav>.open>a:focus {
+    background-color: $dark-primary-color;
+    color: $text-icons;
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: $dark-primary-color;
+}
+.navbar-inverse .navbar-toggle {
+    border-color: transparent;
+}
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+    border-color: $dark-primary-color;
+}
+@media (min-width: 768px) {
+    .navbar-nav>li>a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 32px;
+    }
+    .navbar-nav>li>a span {
+        display: none;
+    }
+    .navbar-nav>li>a span.caret {
+        display: -webkit-inline-box;
+    }
+    .navbar-nav>li>a {
+        line-height: 40px;
+    }
+}
+@media (max-width: 767px) {
+    .navbar-nav>li>a i {
+        display: none;
+    }
+    .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+        background-color: $dark-primary-color;
+    }
+    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+        color: $light-primary-color;
+    }
+}

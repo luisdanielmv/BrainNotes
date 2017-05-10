@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
@@ -20,22 +20,33 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" href="#">Brand</a>
+        <a class="navbar-brand" href="#">Brain Notes</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="#"><i class="mdi mdi-note"></i><span class="navbar-item">Notes</span></a></li>
-          <li><a href="#"><i class="mdi mdi-book"></i><span>Notebooks</span></a></li>
-          <li><a href="#"><i class="mdi mdi-tag"></i><span>Tags</span></a></li>
+          <li><a href="#"><i class="mdi mdi-note" data-toggle="tooltip" data-placement="bottom" title="Notes"></i><span class="navbar-item"> Notes</span></a></li>
+          <li><a href="#"><i class="mdi mdi-book" data-toggle="tooltip" data-placement="bottom" title="Notebooks"></i><span> Notebooks</span></a></li>
+          <li><a href="#"><i class="mdi mdi-tag" data-toggle="tooltip" data-placement="bottom" title="Tags"></i><span> Tags</span></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Account</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="mdi mdi-account"></i>
+            <span> Account</span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Settings</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-md-3">
           <div class="panel panel-default">
@@ -124,7 +135,8 @@
               <h3 class="panel-title">Note 1</h3>
             </div>
             <div class="panel-body section-display">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iusto omnis, distinctio maiores laborum necessitatibus
-              autem repudiandae quibusdam itaque, similique nesciunt commodi error vel velit cupiditate ex facilis ut reiciendis.</div>
+              autem repudiandae quibusdam itaque, similique nesciunt commodi error vel velit cupiditate ex facilis ut reiciendis.
+            </div>
             <div class="panel-footer">
               <i class="mdi mdi-tag"></i>
               <span>Tags: </span>
@@ -144,6 +156,11 @@
   <footer>
   </footer>
   <script src="js/main.js"></script>
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 </body>
 
 </html>
