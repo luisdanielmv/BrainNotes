@@ -9,10 +9,6 @@
   overflow: scroll;
 }
 
-.row>div {
-  padding: 0px;
-}
-
 .row>div>.panel {
   margin-bottom: 0px;
   border-radius: 0px;
@@ -25,4 +21,9 @@
 .hide2 {
   opacity: 0;
   width: 0%;
+  padding: 0;
+}
+
+.section {
+  padding: 0px;
 }

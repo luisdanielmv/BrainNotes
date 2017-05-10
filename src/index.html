@@ -25,22 +25,22 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a id="btn-notes" href="#"><i class="mdi mdi-note" data-toggle="tooltip" data-placement="bottom" title="Notes"></i><span class="navbar-item"> Notes</span></a></li>
-          <li><a href="#"><i class="mdi mdi-book" data-toggle="tooltip" data-placement="bottom" title="Notebooks"></i><span> Notebooks</span></a></li>
-          <li><a href="#"><i class="mdi mdi-tag" data-toggle="tooltip" data-placement="bottom" title="Tags"></i><span> Tags</span></a></li>
+          <li><a id="btn-notebooks" href="#"><i class="mdi mdi-book" data-toggle="tooltip" data-placement="bottom" title="Notebooks"></i><span> Notebooks</span></a></li>
+          <li><a id="btn-tags" href="#"><i class="mdi mdi-tag" data-toggle="tooltip" data-placement="bottom" title="Tags"></i><span> Tags</span></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             <i class="mdi mdi-account"></i>
             <span> Account</span>
             <span class="caret"></span>
           </a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Settings</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Logout</a></li>
-          </ul>
-        </li>
+            <ul class="dropdown-menu">
+              <li><a href="#">Settings</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
@@ -48,88 +48,156 @@
   <main>
     <div class="container-fluid">
       <div class="row">
-        <div id="section-notes" class="col-md-3 transition">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Notes</h3>
+        <div class="col-md-3 transition section">
+          <div class="row">
+            <div id="section-notes" class="col-md-12 transition">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Notes</h3>
+                </div>
+                <div class="panel-body section-notes">
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 1</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 2</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 3</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 1</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 2</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 3</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 1</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 2</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 3</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 1</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 2</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 3</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 1</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 2</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 3</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 1</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 2</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 3</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 1</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 2</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 3</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 1</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 2</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Note 3</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="panel-body section-notes">
+            <div id="section-notebooks" class="col-md-12 hide2 transition">
               <div class="panel panel-default">
-                <div class="panel-body">Note 1</div>
+                <div class="panel-heading">
+                  <h3 class="panel-title">Notebooks</h3>
+                </div>
+                <div class="panel-body section-notes">
+                  <div class="panel panel-default">
+                    <div class="panel-body">Notebook 1</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Notebook 2</div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">Notebook 3</div>
+                  </div>
+                </div>
               </div>
+            </div>
+            <div id="section-tags" class="col-md-12 hide2 transition">
               <div class="panel panel-default">
-                <div class="panel-body">Note 2</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 3</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 1</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 2</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 3</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 1</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 2</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 3</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 1</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 2</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 3</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 1</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 2</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 3</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 1</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 2</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 3</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 1</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 2</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 3</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 1</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 2</div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-body">Note 3</div>
+                <div class="panel-heading">
+                  <h3 class="panel-title">Tags</h3>
+                </div>
+                <div class="panel-body section-notes">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <span class="label label-default"><i class="mdi mdi-tag"></i></span>
+                      Default
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <span class="label label-primary"><i class="mdi mdi-tag"></i></span>
+                      Primary
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <span class="label label-info"><i class="mdi mdi-tag"></i></span>
+                      Info
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <span class="label label-warning"><i class="mdi mdi-tag"></i></span>
+                      Warning
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <span class="label label-danger"><i class="mdi mdi-tag"></i></span>
+                      Danger
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <span class="label label-success"><i class="mdi mdi-tag"></i></span>
+                      Success
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-9">
+
+        <div class="col-md-9 section">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title">Note 1</h3>
