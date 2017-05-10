@@ -71,3 +71,11 @@
       color: $light-primary-color;
   }
 }
+
+.transition {
+  transition: all 1s;
+}
+
+.hide {
+  color: red;
+}
