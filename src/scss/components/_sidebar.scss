@@ -1,0 +1,26 @@
+.sidebar {
+    position: absolute;
+    width: 51px;
+    height: calc(100vh - 51px);
+    background-color: $primary-color;
+}
+
+.sidebar>ul {
+    padding: 0 10px;
+    list-style: none;
+}
+
+.sidebar>ul>li {
+    padding: 5px 0;
+    font-size: 32px;
+    text-align: center;
+    color: $light-primary-color;
+}
+
+.sidebar>ul>li>a {
+    color: $light-primary-color;
+}
+
+.sidebar>ul>li>a:hover {
+    color: $text-icons;
+}

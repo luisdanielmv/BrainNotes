@@ -23,11 +23,11 @@
         <a class="navbar-brand" href="#">Brain Notes</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+        <!--<ul class="nav navbar-nav">
           <li><a id="btn-notes" href="#"><i class="mdi mdi-note" data-toggle="tooltip" data-placement="bottom" title="Notes"></i><span class="navbar-item"> Notes</span></a></li>
           <li><a id="btn-notebooks" href="#"><i class="mdi mdi-book" data-toggle="tooltip" data-placement="bottom" title="Notebooks"></i><span> Notebooks</span></a></li>
           <li><a id="btn-tags" href="#"><i class="mdi mdi-tag" data-toggle="tooltip" data-placement="bottom" title="Tags"></i><span> Tags</span></a></li>
-        </ul>
+        </ul>-->
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -45,7 +45,14 @@
       </div>
     </div>
   </nav>
-  <main>
+  <nav class="sidebar">
+    <ul>
+        <li><a id="btn-notes" href="#"><i class="mdi mdi-note" data-toggle="tooltip" data-placement="right" title="Notes"></i></a></li>
+        <li><a id="btn-notebooks" href="#"><i class="mdi mdi-book" data-toggle="tooltip" data-placement="right" title="Notebooks"></i></a></li>
+        <li><a id="btn-tags" href="#"><i class="mdi mdi-tag" data-toggle="tooltip" data-placement="right" title="Tags"></i></a></li>
+      </ul>
+  </nav>
+  <main class="main">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-3 transition section">
