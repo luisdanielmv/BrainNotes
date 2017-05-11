@@ -76,6 +76,8 @@ function BrainNotes(pSettings) {
 			notesSaveEditBtn: pSettings.notesSettings.notesSaveEditBtn || "defaultPotato",
 			notesCancelEditBtn: pSettings.notesSettings.notesCancelEditBtn || "defaultPotato",
 			notesSection: pSettings.notesSettings.notesSection || "defaultPotato",
+			editDeleteGroups: pSettings.notesSettings.editDeleteGroups || "defaultPotato",
+			saveCancelGroups: pSettings.notesSettings.saveCancelGroups || "defaultPotato",
 			notesHolderId: pSettings.notesSettings.notesHolderId || "defaultPotato",
 			notesList: pSettings.notesSettings.notesList || "defaultPotato"
 		},
@@ -100,7 +102,13 @@ function BrainNotes(pSettings) {
 	self.noteBtn = document.getElementById(self.settings.notesSettings.notesBtn);
 	self.noteEditBtn = document.getElementById(self.settings.notesSettings.notesEditBtn);
 	self.noteSaveEditBtn = document.getElementById(self.settings.notesSettings.notesSaveEditBtn);
-	self.noteCancelEditBtn = document.getElementById(self.settings.notesSettings.notesCancelEditBtn)
+	self.noteCancelEditBtn = document.getElementById(self.settings.notesSettings.notesCancelEditBtn);
+	console.log(self.noteCancelEditBtn);
+
+	self.saveCancelGroup = document.getElementById(self.settings.notesSettings.saveCancelGroups);
+	self.editDeleteGroup = document.getElementById(self.settings.notesSettings.editDeleteGroups);
+	console.log(self.saveCancelGroup);
+	console.log(self.editDeleteGroup);
 
 	self.noteSection = document.getElementById(self.settings.notesSettings.notesSection);
 	self.noteHolder = document.getElementById(self.settings.notesSettings.notesHolderId);
@@ -146,19 +154,34 @@ function BrainNotes(pSettings) {
 	}
 
 	self.editNote = function() {
+		toggleActions();
 		self.displayNoteTitle.setAttribute("contenteditable", "true");
 		self.displayNoteContent.setAttribute("contenteditable", "true");
 	}
 
 	self.saveEdit = function() {
+		toggleActions();
 		self.activeNote.title = self.displayNoteTitle.firstChild.nodeValue;
 		self.activeNote.content = self.displayNoteContent.firstChild.nodeValue;
 		self.activeNote.updateDisplayedTitle();
 	}
 
 	self.cancelEdit = function() {
+		toggleActions();
 		self.displayNoteTitle.removeAttribute("contenteditable");
 		self.displayNoteContent.removeAttribute("contenteditable");
+	}
+
+	function toggleActions() {
+		self.editDeleteGroup.classList.toggle('hide');
+		self.saveCancelGroup.classList.toggle('hide');
+		// toggleClass(self.editDeleteGroup, 'hide');
+	}
+
+	function toggleClass(element, className){
+		if (document.body.classList.contains('thatClass')) {
+			// do some stuff
+		}
 	}
 
 	self.noteBtn.addEventListener("click", function () {
@@ -191,8 +214,11 @@ var bn = new BrainNotes({
 		notesEditBtn: "btn-edit-notes",
 		notesSaveEditBtn: "btn-edit-save-notes",
 		notesCancelEditBtn: "btn-edit-cancel-notes",
+		notesDeleteBtn: "btn-delete-notes",
 		notesSection: "section-notes",
 		notesHolderId: "holder-notes",
+		editDeleteGroups: "edit-delete-group",
+		saveCancelGroups: "save-cancel-group",
 		notesList: [{title:"title1", content:"content1"}, {title:"title2", content:"content2"}, {title:"title3", content:"content3"}]
 	},
 	noteBookSettings: {

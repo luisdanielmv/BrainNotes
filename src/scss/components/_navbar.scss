@@ -2,6 +2,19 @@
 .navbar {
     margin-bottom: 0px;
 }
+.navbar-logo {
+    padding: 0;
+}
+.navbar-brand>span {
+    padding: 0 14.5px
+}
+.navbar>.container .navbar-brand, 
+.navbar>.container-fluid .navbar-brand {
+    margin-left: -15px;
+    padding: 0 10px;
+    display: -webkit-inline-box;
+    line-height: 50px;
+}   
 .navbar-inverse {
     background-color: $primary-color;
     border-radius: 0;

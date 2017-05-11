@@ -5,6 +5,7 @@
     border-color: $dark-primary-color;
 }
 
-.btn-success:hover {
+.btn-success:hover,
+.btn-success:focus {
     background-color: $dark-primary-color;
 }
