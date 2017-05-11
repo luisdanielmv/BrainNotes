@@ -135,14 +135,18 @@
 
         <div class="col-md-9 section">
           <div class="panel panel-default">
-            <div class="panel-heading clearfix">
-              <div class="btn-group pull-right">
-                <a href="#" id="btn-edit-notes" class="btn btn-default btn-warning"><i class="mdi mdi-pencil"> </i></a>
-                <a href="#" class="btn btn-default btn-danger"><i class="mdi mdi-delete"> </i></a>
+              <div class="panel-heading clearfix">
+                <div id="save-cancel-group" class="btn-group pull-right hide">
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="Save" id="btn-edit-save-notes" class="btn btn-default btn-success"><i class="mdi mdi-content-save"> </i></a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="Cancel" id="btn-edit-cancel-notes" class="btn btn-default btn-danger"><i class="mdi mdi-cancel"> </i></a>
+                </div>
+                <div id="edit-delete-group" class="btn-group pull-right">
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="Edit" id="btn-edit-notes" class="btn btn-default btn-warning"><i class="mdi mdi-pencil"> </i></a>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="Delete" id="btn-delete-notes" class="btn btn-default btn-danger"><i class="mdi mdi-delete"> </i></a>
+                </div>
+                <h4 id="content-title" class="panel-title pull-left heading-editable">Notes</h4>
               </div>
-              <h4 contenteditable="true" id="content-title" class="panel-title pull-left heading-editable">Notes</h4>
-            </div>
-            <div contenteditable="true" id="content-display" class="panel-body section-display body-editable">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iusto omnis, distinctio maiores laborum necessitatibus
+            <div id="content-display" class="panel-body section-display body-editable">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iusto omnis, distinctio maiores laborum necessitatibus
               autem repudiandae quibusdam itaque, similique nesciunt commodi error vel velit cupiditate ex facilis ut reiciendis.
             </div>
             <div class="panel-footer">
