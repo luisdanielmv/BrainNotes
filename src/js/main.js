@@ -5,6 +5,7 @@ function Note(pId, pTitle, pContent) {
 	self.title = "Default Note Title";
 	self.content = "Default Note Content";
 	self.element = createNoteElement();
+	self.textHolder = self.element.firstElementChild;
 
 	if (typeof pId != null) {
 		self.id = pId;
@@ -30,6 +31,12 @@ function Note(pId, pTitle, pContent) {
 		outerDiv.appendChild(innerDiv);
 
 		return outerDiv;
+	}
+
+	self.updateDisplayedTitle = function () {
+		var txtNode = document.createTextNode(self.title);
+		self.textHolder.removeChild(self.textHolder.firstChild);
+		self.textHolder.appendChild(txtNode);
 	}
 }
 
@@ -88,9 +95,7 @@ function BrainNotes(pSettings) {
 	};
 
 	self.displayNoteTitle = document.getElementById(self.settings.displayNoteTitle);
-	console.log(self.displayNoteTitle);
 	self.displayNoteContent = document.getElementById(self.settings.displayNoteContent);
-	console.log(self.displayNoteContent);
 
 	self.noteBtn = document.getElementById(self.settings.notesSettings.notesBtn);
 	self.noteEditBtn = document.getElementById(self.settings.notesSettings.notesEditBtn);
@@ -146,10 +151,9 @@ function BrainNotes(pSettings) {
 	}
 
 	self.saveEdit = function() {
-		console.log(self.displayNoteTitle.firstChild.nodeValue);
 		self.activeNote.title = self.displayNoteTitle.firstChild.nodeValue;
-		console.log(self.displayNoteContent.firstChild.nodeValue);
 		self.activeNote.content = self.displayNoteContent.firstChild.nodeValue;
+		self.activeNote.updateDisplayedTitle();
 	}
 
 	self.cancelEdit = function() {
