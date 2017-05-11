@@ -149,23 +149,24 @@ function BrainNotes(pSettings) {
 	}
 
 	self.editNote = function() {
-		toggleActions();
 		self.displayNoteTitle.setAttribute("contenteditable", "true");
 		self.displayNoteContent.setAttribute("contenteditable", "true");
+
+		self.editDeleteGroup.classList.add('hide');
+		self.saveCancelGroup.classList.remove('hide');
 	}
 
 	self.saveEdit = function() {
-		toggleActions();
-		console.log(self.displayNoteTitle.firstChild.nodeValue);
 		self.activeNote.title = self.displayNoteTitle.firstChild.nodeValue;
-		console.log(self.displayNoteContent.firstChild.nodeValue);
 		self.activeNote.content = self.displayNoteContent.firstChild.nodeValue;
 	}
 
 	self.cancelEdit = function() {
-		toggleActions();
 		self.displayNoteTitle.removeAttribute("contenteditable");
 		self.displayNoteContent.removeAttribute("contenteditable");
+
+		self.editDeleteGroup.classList.remove('hide');
+		self.saveCancelGroup.classList.add('hide');
 	}
 
 	function toggleActions() {
