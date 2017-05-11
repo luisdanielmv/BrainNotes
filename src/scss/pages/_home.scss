@@ -24,12 +24,21 @@
   padding: 0;
 }
 
+@media (max-width: 767px) {
+    .hide2 {
+      height: 0;
+          margin: -1px;
+    }
+}
+
 .section {
   padding: 0px;
 }
 
-.main {
-  margin-left: 51px;
+@media (min-width: 767px) {
+    .main {
+      margin-left: 51px;
+    }
 }
 
 .panel-heading.clearfix>h4 {
@@ -45,12 +54,12 @@
   min-width: 200px;
 }
 
-.heading-editable[contenteditable]:focus {
+.heading-editable[contenteditable = true] {
     outline: 0px solid transparent;
     background-color: lightyellow;
 }
 
-.body-editable[contenteditable]:focus {
+.body-editable[contenteditable = true] {
     outline: 0px solid transparent;
     background-color: lightyellow;
 }

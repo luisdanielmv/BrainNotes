@@ -26,11 +26,11 @@
           </a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <!--<ul class="nav navbar-nav">
-          <li><a id="btn-notes" href="#"><i class="mdi mdi-note" data-toggle="tooltip" data-placement="bottom" title="Notes"></i><span class="navbar-item"> Notes</span></a></li>
-          <li><a id="btn-notebooks" href="#"><i class="mdi mdi-book" data-toggle="tooltip" data-placement="bottom" title="Notebooks"></i><span> Notebooks</span></a></li>
-          <li><a id="btn-tags" href="#"><i class="mdi mdi-tag" data-toggle="tooltip" data-placement="bottom" title="Tags"></i><span> Tags</span></a></li>
-        </ul>-->
+        <ul class="nav navbar-nav">
+          <li><a id="nav-btn-notes" href="#"><span class="navbar-item">Notes</span></a></li>
+          <li><a id="nav-btn-notebooks" href="#"><span>Notebooks</span></a></li>
+          <li><a id="nav-btn-tags" href="#"><span>Tags</span></a></li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -144,11 +144,9 @@
                   <a href="#" data-toggle="tooltip" data-placement="bottom" title="Edit" id="btn-edit-notes" class="btn btn-default btn-warning"><i class="mdi mdi-pencil"> </i></a>
                   <a href="#" data-toggle="tooltip" data-placement="bottom" title="Delete" id="btn-delete-notes" class="btn btn-default btn-danger"><i class="mdi mdi-delete"> </i></a>
                 </div>
-                <h4 id="display-note-title" class="panel-title pull-left heading-editable">Notes</h4>
+                <h4 id="display-note-title" class="panel-title pull-left heading-editable" contenteditable="false"> </h4>
               </div>
-            <div id="display-note-content" class="panel-body section-display body-editable">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iusto omnis, distinctio maiores laborum necessitatibus
-              autem repudiandae quibusdam itaque, similique nesciunt commodi error vel velit cupiditate ex facilis ut reiciendis.
-            </div>
+            <div id="display-note-content" class="panel-body section-display body-editable" contenteditable="false"> </div>
             <div class="panel-footer">
               <i class="mdi mdi-tag"></i>
               <span>Tags: </span>

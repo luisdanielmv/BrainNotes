@@ -24,3 +24,9 @@
 .sidebar>ul>li>a:hover {
     color: $text-icons;
 }
+
+@media (max-width: 767px) {
+    .sidebar {
+        display: none;
+    }
+}

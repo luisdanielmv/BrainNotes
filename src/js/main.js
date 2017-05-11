@@ -5,6 +5,7 @@ function Note(pId, pTitle, pContent) {
 	self.title = "Default Note Title";
 	self.content = "Default Note Content";
 	self.element = createNoteElement();
+	self.textHolder = self.element.firstElementChild;
 
 	if (typeof pId != null) {
 		self.id = pId;
@@ -30,6 +31,12 @@ function Note(pId, pTitle, pContent) {
 		outerDiv.appendChild(innerDiv);
 
 		return outerDiv;
+	}
+
+	self.updateDisplayedTitle = function () {
+		var txtNode = document.createTextNode(self.title);
+		self.textHolder.removeChild(self.textHolder.firstChild);
+		self.textHolder.appendChild(txtNode);
 	}
 }
 
@@ -65,6 +72,7 @@ function BrainNotes(pSettings) {
 	self.settings = {
 		notesSettings: {
 			notesBtn: pSettings.notesSettings.notesBtn || "defaultPotato",
+			navNotesBtn: pSettings.notesSettings.navNotesBtn || "defaultPotato",
 			notesEditBtn: pSettings.notesSettings.notesEditBtn || "defaultPotato",
 			notesSaveEditBtn: pSettings.notesSettings.notesSaveEditBtn || "defaultPotato",
 			notesCancelEditBtn: pSettings.notesSettings.notesCancelEditBtn || "defaultPotato",
@@ -76,11 +84,13 @@ function BrainNotes(pSettings) {
 		},
 		noteBookSettings: {
 			noteBookBtn: pSettings.noteBookSettings.noteBookBtn || "defaultPotato",
+			navNoteBookBtn: pSettings.noteBookSettings.navNoteBookBtn || "defaultPotato",
 			noteBookSection: pSettings.noteBookSettings.noteBookSection || "defaultPotato",
 			noteBookHolderId: pSettings.noteBookSettings.noteBookHolderId || "defaultPotato"
 		},
 		tagsSettings: {
 			tagsBtn: pSettings.tagsSettings.tagsBtn || "defaultPotato",
+			navTagsBtn: pSettings.tagsSettings.navTagsBtn || "defaultPotato",
 			tagsSection: pSettings.tagsSettings.tagsSection || "defaultPotato",
 			tagsHolderId: pSettings.tagsSettings.tagsHolderId || "defaultPotato"
 		},
@@ -90,11 +100,10 @@ function BrainNotes(pSettings) {
 	};
 
 	self.displayNoteTitle = document.getElementById(self.settings.displayNoteTitle);
-	console.log(self.displayNoteTitle);
 	self.displayNoteContent = document.getElementById(self.settings.displayNoteContent);
-	console.log(self.displayNoteContent);
 
 	self.noteBtn = document.getElementById(self.settings.notesSettings.notesBtn);
+	self.navNoteBtn = document.getElementById(self.settings.notesSettings.navNotesBtn);
 	self.noteEditBtn = document.getElementById(self.settings.notesSettings.notesEditBtn);
 	self.noteSaveEditBtn = document.getElementById(self.settings.notesSettings.notesSaveEditBtn);
 	self.noteCancelEditBtn = document.getElementById(self.settings.notesSettings.notesCancelEditBtn);
@@ -110,10 +119,12 @@ function BrainNotes(pSettings) {
 	self.noteList = new Array();
 
 	self.noteBookBtn = document.getElementById(self.settings.noteBookSettings.noteBookBtn);
+	self.navNoteBookBtn = document.getElementById(self.settings.noteBookSettings.navNoteBookBtn);
 	self.noteBookSection = document.getElementById(self.settings.noteBookSettings.noteBookSection);
 	self.noteBookList = new Array();
 
 	self.tagsBtn = document.getElementById(self.settings.tagsSettings.tagsBtn);
+	self.navTagsBtn = document.getElementById(self.settings.tagsSettings.navTagsBtn);
 	self.tagsSection = document.getElementById(self.settings.tagsSettings.tagsSection);
 	self.tagList = new Array();
 	self.active = self.noteSection;
@@ -159,29 +170,21 @@ function BrainNotes(pSettings) {
 	self.saveEdit = function() {
 		self.activeNote.title = self.displayNoteTitle.firstChild.nodeValue;
 		self.activeNote.content = self.displayNoteContent.firstChild.nodeValue;
+		self.activeNote.updateDisplayedTitle();
 	}
 
 	self.cancelEdit = function() {
-		self.displayNoteTitle.removeAttribute("contenteditable");
-		self.displayNoteContent.removeAttribute("contenteditable");
+		self.displayNoteTitle.setAttribute("contenteditable", "false");
+		self.displayNoteContent.setAttribute("contenteditable", "false");
 
 		self.editDeleteGroup.classList.remove('hide');
 		self.saveCancelGroup.classList.add('hide');
 	}
 
-	function toggleActions() {
-		self.editDeleteGroup.classList.toggle('hide');
-		self.saveCancelGroup.classList.toggle('hide');
-		// toggleClass(self.editDeleteGroup, 'hide');
-	}
-
-	function toggleClass(element, className){
-		if (document.body.classList.contains('thatClass')) {
-			// do some stuff
-		}
-	}
-
 	self.noteBtn.addEventListener("click", function () {
+		toggleHide(self.noteSection);
+	});
+	self.navNoteBtn.addEventListener("click", function () {
 		toggleHide(self.noteSection);
 	});
 	self.noteEditBtn.addEventListener("click", self.editNote);
@@ -198,7 +201,14 @@ function BrainNotes(pSettings) {
 	self.noteBookBtn.addEventListener("click", function () {
 		toggleHide(self.noteBookSection);
 	});
+	self.navNoteBookBtn.addEventListener("click", function () {
+		toggleHide(self.noteBookSection);
+	});
+
 	self.tagsBtn.addEventListener("click", function () {
+		toggleHide(self.tagsSection);
+	});
+	self.navTagsBtn.addEventListener("click", function () {
 		toggleHide(self.tagsSection);
 	});
 
@@ -208,6 +218,7 @@ function BrainNotes(pSettings) {
 var bn = new BrainNotes({
 	notesSettings: {
 		notesBtn: "btn-notes",
+		navNotesBtn: "nav-btn-notes",
 		notesEditBtn: "btn-edit-notes",
 		notesSaveEditBtn: "btn-edit-save-notes",
 		notesCancelEditBtn: "btn-edit-cancel-notes",
@@ -220,10 +231,12 @@ var bn = new BrainNotes({
 	},
 	noteBookSettings: {
 		noteBookBtn: "btn-notebooks",
+		navNoteBookBtn: "nav-btn-notebooks",
 		noteBookSection: "section-notebooks",
 		noteBookHolderId: ""
 	},
 	tagsSettings: {
+		navTagsBtn: "nav-btn-tags",
 		tagsBtn: "btn-tags",
 		tagsSection: "section-tags",
 		tagsHolderId: ""
