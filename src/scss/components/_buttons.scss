@@ -1,5 +1,10 @@
 
-.btn {
-  background-color: $primary-color;
-  font-size: $text-size;
+.btn-success {
+    color: #fff;
+    background-color: $primary-color;
+    border-color: $dark-primary-color;
+}
+
+.btn-success:hover {
+    background-color: $dark-primary-color;
 }

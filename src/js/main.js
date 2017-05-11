@@ -68,6 +68,7 @@ function BrainNotes(pSettings) {
 			notesBtn: pSettings.notesSettings.notesBtn || "defaultPotato",
 			notesEditBtn: pSettings.notesSettings.notesEditBtn || "defaultPotato",
 			notesSaveEditBtn: pSettings.notesSettings.notesSaveEditBtn || "defaultPotato",
+			notesCancelEditBtn: pSettings.notesSettings.notesCancelEditBtn || "defaultPotato",
 			notesSection: pSettings.notesSettings.notesSection || "defaultPotato",
 			notesHolderId: pSettings.notesSettings.notesHolderId || "defaultPotato",
 			notesList: pSettings.notesSettings.notesList || "defaultPotato"
@@ -93,6 +94,8 @@ function BrainNotes(pSettings) {
 	self.noteBtn = document.getElementById(self.settings.notesSettings.notesBtn);
 	self.noteEditBtn = document.getElementById(self.settings.notesSettings.notesEditBtn);
 	self.noteSaveEditBtn = document.getElementById(self.settings.notesSettings.notesSaveEditBtn);
+	self.noteCancelEditBtn = document.getElementById(self.settings.notesSettings.notesCancelEditBtn)
+
 	self.noteSection = document.getElementById(self.settings.notesSettings.notesSection);
 	self.noteHolder = document.getElementById(self.settings.notesSettings.notesHolderId);
 	self.noteList = new Array();
@@ -106,11 +109,6 @@ function BrainNotes(pSettings) {
 	self.tagList = new Array();
 	self.active = self.noteSection;
 	self.activeNote = "Default Potato";
-
-	function getElementById(pId) {
-		var tempElement = document.getElementById(pId);
-		return tempElement;
-	}
 
 	function toggleHide(pSection) {
 		if (self.active != pSection) {
@@ -133,32 +131,43 @@ function BrainNotes(pSettings) {
 		});
 	}
 
-	displayNote(pNote) {
+	function displayNote(pNote) {
 		var txtNodeTitle = document.createTextNode(pNote.title),
 			txtNodeContent = document.createTextNode(pNote.content);
 
 		self.displayNoteTitle.removeChild(self.displayNoteTitle.firstChild);
-		self.displayNoteTitle.appentChild(txtNodeTitle);
+		self.displayNoteTitle.appendChild(txtNodeTitle);
 		self.displayNoteContent.removeChild(self.displayNoteContent.firstChild);
-		self.displayNoteContent.appentChild(txtNodeContent);	
+		self.displayNoteContent.appendChild(txtNodeContent);	
 	}
 
-	editNote = function () {
+	function editNote() {
 		self.displayNoteTitle.setAttribute("contenteditable", "true");
 		self.displayNoteContent.setAttribute("contenteditable", "true");
 	}
 
-	saveEdit = function () {
+	function saveEdit() {
 		self.activeNote.title = self.displayNoteTitle.nodeValue;
 		self.activeNote.content = self.displayNoteContent.nodeValue;
+		
+		self.displayNote(self.activeNote);
+	}
+
+	function cancelEdit() {
 		self.displayNoteTitle.removeAttribute("contenteditable");
 		self.displayNoteContent.removeAttribute("contenteditable");
-		self.displayNote(self.activeNote);
 	}
 
 	self.noteBtn.addEventListener("click", function () {
 		toggleHide(self.noteSection);
 	});
+	self.noteEditBtn.addEventListener("click", editNote);
+	self.noteSaveEditBtn.addEventListener("click", saveEdit);
+	self.noteCancelEditBtn.addEventListener("click", function() {
+		cancelEdit();
+		displayNote(self.activeNote);
+	});
+
 	self.noteBookBtn.addEventListener("click", function () {
 		toggleHide(self.noteBookSection);
 	});
@@ -174,7 +183,8 @@ var bn = new BrainNotes({
 	notesSettings: {
 		notesBtn: "btn-notes",
 		notesEditBtn: "btn-edit-notes",
-		notesSaveEditBtn: "btn-save-notes",
+		notesSaveEditBtn: "btn-edit-save-notes",
+		notesCancelEditBtn: "btn-edit-cancel-notes",
 		notesSection: "section-notes",
 		notesHolderId: "holder-notes",
 		notesList: [{title:"title1", content:"content1"}, {title:"title2", content:"content2"}, {title:"title3", content:"content3"}]
@@ -194,7 +204,7 @@ var bn = new BrainNotes({
 	displayNoteContent: "content-display"
 });
 
-bn.addNote("Titulo Test 1", "Content Test 1");
-bn.addNote("Titulo Test 2", "Content Test 2");
+bn.addNote("Lorem Ipsum", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis accumsan elit, in ornare nisl facilisis eu. Donec blandit at diam at malesuada. Curabitur fringilla, nisl at accumsan euismod, velit dui vulputate tellus, id maximus nisi risus nec eros. Donec eget rutrum justo. Mauris et est quis est consectetur dignissim. Integer consectetur nulla in diam molestie, sit amet consequat metus sollicitudin. Quisque faucibus dapibus risus a varius. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris non nibh dictum, ornare mi quis, vehicula turpis.");
+bn.addNote("Donec Nec Tellus", "Donec nec tellus ut libero maximus condimentum et in augue. Phasellus at sollicitudin ligula, vitae tempus tellus. Vivamus egestas augue id imperdiet cursus. Vivamus maximus ac diam non placerat. Aenean euismod ultricies odio ut rhoncus. Mauris ullamcorper sodales orci. Nulla facilisi. Donec aliquet consequat vestibulum. Phasellus aliquam diam a felis placerat tempor.");
 
-console.log(BN.constructor.name);
+console.log(bn.constructor.name);

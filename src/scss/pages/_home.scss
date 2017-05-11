@@ -1,11 +1,11 @@
 // Home specific styles
 .section-notes {
-  height: calc(100vh - 93px);
+  height: calc(100vh - 109px);
   overflow: scroll;
 }
 
 .section-display {
-  height: calc(100vh - 133px);
+  height: calc(100vh - 149px);
   overflow: scroll;
 }
 
@@ -30,4 +30,27 @@
 
 .main {
   margin-left: 51px;
+}
+
+.panel-heading.clearfix>h4 {
+  padding: 8px;
+}
+
+// [contenteditable]:focus {
+//     outline: 0px solid transparent;
+//     background-color: lightyellow;
+// }
+
+.heading-editable {
+  min-width: 200px;
+}
+
+.heading-editable[contenteditable]:focus {
+    outline: 0px solid transparent;
+    background-color: lightyellow;
+}
+
+.body-editable[contenteditable]:focus {
+    outline: 0px solid transparent;
+    background-color: lightyellow;
 }
