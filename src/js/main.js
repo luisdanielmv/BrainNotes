@@ -80,7 +80,8 @@ function BrainNotes(pSettings) {
 			editDeleteGroups: pSettings.notesSettings.editDeleteGroups || "defaultPotato",
 			saveCancelGroups: pSettings.notesSettings.saveCancelGroups || "defaultPotato",
 			notesHolderId: pSettings.notesSettings.notesHolderId || "defaultPotato",
-			notesList: pSettings.notesSettings.notesList || "defaultPotato"
+			notesList: pSettings.notesSettings.notesList || "defaultPotato",
+			panelEditable: pSettings.notesSettings.panelEditable || "defatulPotato"
 		},
 		noteBookSettings: {
 			noteBookBtn: pSettings.noteBookSettings.noteBookBtn || "defaultPotato",
@@ -107,12 +108,10 @@ function BrainNotes(pSettings) {
 	self.noteEditBtn = document.getElementById(self.settings.notesSettings.notesEditBtn);
 	self.noteSaveEditBtn = document.getElementById(self.settings.notesSettings.notesSaveEditBtn);
 	self.noteCancelEditBtn = document.getElementById(self.settings.notesSettings.notesCancelEditBtn);
-	console.log(self.noteCancelEditBtn);
+	self.panelEditable = document.getElementById(self.settings.notesSettings.panelEditable);
 
 	self.saveCancelGroup = document.getElementById(self.settings.notesSettings.saveCancelGroups);
 	self.editDeleteGroup = document.getElementById(self.settings.notesSettings.editDeleteGroups);
-	console.log(self.saveCancelGroup);
-	console.log(self.editDeleteGroup);
 
 	self.noteSection = document.getElementById(self.settings.notesSettings.notesSection);
 	self.noteHolder = document.getElementById(self.settings.notesSettings.notesHolderId);
@@ -162,6 +161,7 @@ function BrainNotes(pSettings) {
 	self.editNote = function() {
 		self.displayNoteTitle.setAttribute("contenteditable", "true");
 		self.displayNoteContent.setAttribute("contenteditable", "true");
+		self.panelEditable.classList.add("panel-editable-edit");
 
 		self.editDeleteGroup.classList.add('hide');
 		self.saveCancelGroup.classList.remove('hide');
@@ -176,6 +176,7 @@ function BrainNotes(pSettings) {
 	self.cancelEdit = function() {
 		self.displayNoteTitle.setAttribute("contenteditable", "false");
 		self.displayNoteContent.setAttribute("contenteditable", "false");
+		self.panelEditable.classList.remove("panel-editable-edit");
 
 		self.editDeleteGroup.classList.remove('hide');
 		self.saveCancelGroup.classList.add('hide');
@@ -227,6 +228,7 @@ var bn = new BrainNotes({
 		notesHolderId: "holder-notes",
 		editDeleteGroups: "edit-delete-group",
 		saveCancelGroups: "save-cancel-group",
+		panelEditable: "panel-editable",
 		notesList: [{title:"title1", content:"content1"}, {title:"title2", content:"content2"}, {title:"title3", content:"content3"}]
 	},
 	noteBookSettings: {
