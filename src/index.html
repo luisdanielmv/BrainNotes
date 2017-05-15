@@ -58,7 +58,7 @@
   <main class="main">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-3 transition section">
+        <div id="section-side" class="col-sm-3 transition section">
           <div class="row">
             <div id="section-notes" class="col-md-12 transition">
               <div class="panel panel-default">
@@ -133,7 +133,7 @@
           </div>
         </div>
 
-        <div class="col-md-9 section">
+        <div id="section-main" class="col-sm-9 section hidden-xs hidden-sm">
           <div id="panel-editable" class="panel panel-default">
               <div class="panel-heading clearfix">
                 <div id="save-cancel-group" class="btn-group pull-right hide">
@@ -144,6 +144,7 @@
                   <a href="#" data-toggle="tooltip" data-placement="bottom" title="Edit" id="btn-edit-notes" class="btn btn-default btn-warning"><i class="mdi mdi-pencil"> </i></a>
                   <a href="#" data-toggle="tooltip" data-placement="bottom" title="Delete" id="btn-delete-notes" class="btn btn-default btn-danger"><i class="mdi mdi-delete"> </i></a>
                 </div>
+                <a id="btn-back" href="#" class="btn btn-default pull-left hidden-xl hidden-md"><i class="mdi mdi-chevron-left"></i></a>
                 <h4 id="display-note-title" class="panel-title pull-left heading-editable" contenteditable="false"> </h4>
               </div>
             <div id="display-note-content" class="panel-body section-display body-editable" contenteditable="false"> </div>

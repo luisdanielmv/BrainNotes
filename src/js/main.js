@@ -97,7 +97,10 @@ function BrainNotes(pSettings) {
 		},
 		toggledClass: pSettings.toggledClass || "defaultPotato",
 		displayNoteTitle: pSettings.displayNoteTitle || "defaultPotato",
-		displayNoteContent: pSettings.displayNoteContent || "defaultPotato"
+		displayNoteContent: pSettings.displayNoteContent || "defaultPotato",
+		mainSection: pSettings.mainSection || "defaultPotato",
+		sideSection: pSettings.sideSection || "defaultPotato",
+		btnBack: pSettings.btnBack || "defaultPotato"
 	};
 
 	self.displayNoteTitle = document.getElementById(self.settings.displayNoteTitle);
@@ -125,6 +128,9 @@ function BrainNotes(pSettings) {
 	self.tagsBtn = document.getElementById(self.settings.tagsSettings.tagsBtn);
 	self.navTagsBtn = document.getElementById(self.settings.tagsSettings.navTagsBtn);
 	self.tagsSection = document.getElementById(self.settings.tagsSettings.tagsSection);
+	self.sideSection = document.getElementById(self.settings.sideSection);
+	self.mainSection = document.getElementById(self.settings.mainSection);
+	self.btnBack = document.getElementById(self.settings.btnBack);
 	self.tagList = new Array();
 	self.active = self.noteSection;
 	self.activeNote = "Default Potato";
@@ -156,6 +162,11 @@ function BrainNotes(pSettings) {
 		self.displayNoteTitle.appendChild(txtNodeTitle);
 		self.displayNoteContent.removeChild(self.displayNoteContent.firstChild);
 		self.displayNoteContent.appendChild(txtNodeContent);	
+
+		self.sideSection.classList.add("hidden-xs");
+		self.sideSection.classList.add("hidden-sm");
+		self.mainSection.classList.remove("hidden-xs");
+		self.mainSection.classList.remove("hidden-sm");
 	}
 
 	self.editNote = function() {
@@ -212,7 +223,12 @@ function BrainNotes(pSettings) {
 	self.navTagsBtn.addEventListener("click", function () {
 		toggleHide(self.tagsSection);
 	});
-
+	self.btnBack.addEventListener("click", function() {
+		self.sideSection.classList.remove("hidden-xs");
+		self.sideSection.classList.remove("hidden-sm");
+		self.mainSection.classList.add("hidden-xs");
+		self.mainSection.classList.add("hidden-sm");
+	});
 }
 
 //BrainNotes Initialization
@@ -245,7 +261,10 @@ var bn = new BrainNotes({
 	},
 	toggledClass: "hide2",
 	displayNoteTitle: "display-note-title",
-	displayNoteContent: "display-note-content"
+	displayNoteContent: "display-note-content",
+	btnBack: "btn-back",
+	sideSection: "section-side",
+	mainSection: "section-main"
 });
 
 bn.addNote("Lorem Ipsum", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis accumsan elit, in ornare nisl facilisis eu. Donec blandit at diam at malesuada. Curabitur fringilla, nisl at accumsan euismod, velit dui vulputate tellus, id maximus nisi risus nec eros. Donec eget rutrum justo. Mauris et est quis est consectetur dignissim. Integer consectetur nulla in diam molestie, sit amet consequat metus sollicitudin. Quisque faucibus dapibus risus a varius. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris non nibh dictum, ornare mi quis, vehicula turpis.");
