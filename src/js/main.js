@@ -164,9 +164,7 @@ function BrainNotes(pSettings) {
 		self.displayNoteContent.appendChild(txtNodeContent);	
 
 		self.sideSection.classList.add("hidden-xs");
-		self.sideSection.classList.add("hidden-sm");
 		self.mainSection.classList.remove("hidden-xs");
-		self.mainSection.classList.remove("hidden-sm");
 	}
 
 	self.editNote = function() {
@@ -225,9 +223,9 @@ function BrainNotes(pSettings) {
 	});
 	self.btnBack.addEventListener("click", function() {
 		self.sideSection.classList.remove("hidden-xs");
-		self.sideSection.classList.remove("hidden-sm");
+		
 		self.mainSection.classList.add("hidden-xs");
-		self.mainSection.classList.add("hidden-sm");
+		
 	});
 }
 

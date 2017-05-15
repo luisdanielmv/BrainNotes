@@ -25,10 +25,14 @@
   padding: 0;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 992px) {
     .hide2 {
       height: 0;
-          margin: -1px;
+          margin: 0 -1px;
+    }
+
+    .hide2:nth-child(n+2) {
+      margin-top: -1px;
     }
 }
 
@@ -36,7 +40,7 @@
   padding: 0px;
 }
 
-@media (min-width: 767px) {
+@media (min-width: 768px) {
     .main {
       margin-left: 51px;
     }
