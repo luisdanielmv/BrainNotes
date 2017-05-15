@@ -16,7 +16,7 @@
 }
 
 .transition {
-  transition: all 1s;
+  transition: all 0.3s, height 0.4s;
 }
 
 .hide2 {
@@ -25,13 +25,21 @@
   padding: 0;
 }
 
+.hide2 h3.panel-title {
+  display:none;
+}
+
+.hide2 .btn.btn-success {
+  height: 0;
+}
+
 @media (max-width: 992px) {
     .hide2 {
       height: 0;
           margin: 0 -1px;
     }
 
-    .hide2:nth-child(n+2) {
+    .hide2:nth-child(-n+2) {
       margin-top: -1px;
     }
 }
