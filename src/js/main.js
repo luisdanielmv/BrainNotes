@@ -108,6 +108,7 @@ function BrainNotes(pSettings) {
 
 	self.noteBtn = document.getElementById(self.settings.notesSettings.notesBtn);
 	self.navNoteBtn = document.getElementById(self.settings.notesSettings.navNotesBtn);
+	self.notesNewBtn = document.getElementById(self.settings.notesSettings.notesNewBtn);
 	self.noteEditBtn = document.getElementById(self.settings.notesSettings.notesEditBtn);
 	self.noteSaveEditBtn = document.getElementById(self.settings.notesSettings.notesSaveEditBtn);
 	self.noteCancelEditBtn = document.getElementById(self.settings.notesSettings.notesCancelEditBtn);
@@ -143,6 +144,11 @@ function BrainNotes(pSettings) {
 		}
 	}
 
+	self.newNote = function () {
+		self.activeNote = null;
+		self.editNote();
+	}
+
 	self.addNote = function (pTitle, pContent) {
 		var noteTemp = new Note(self.noteList.length, pTitle, pContent);
 		self.noteList.push(noteTemp);
@@ -150,19 +156,22 @@ function BrainNotes(pSettings) {
 
 		noteTemp.element.addEventListener("click", function () {
 			self.activeNote = noteTemp;
+			self.cancelEdit();
 			self.displayNote();
 		});
 	}
 
 	self.displayNote = function () {
-		var txtNodeTitle = document.createTextNode(self.activeNote.title),
-			txtNodeContent = document.createTextNode(self.activeNote.content);
+		self.clearDisplay();
 
-		self.displayNoteTitle.removeChild(self.displayNoteTitle.firstChild);
-		self.displayNoteTitle.appendChild(txtNodeTitle);
-		self.displayNoteContent.removeChild(self.displayNoteContent.firstChild);
-		self.displayNoteContent.appendChild(txtNodeContent);	
+		if (self.activeNote != null) {
+			var txtNodeTitle = document.createTextNode(self.activeNote.title),
+				txtNodeContent = document.createTextNode(self.activeNote.content);
 
+			self.displayNoteTitle.appendChild(txtNodeTitle);
+			self.displayNoteContent.appendChild(txtNodeContent);	
+		}
+		
 		self.sideSection.classList.add("hidden-xs");
 		self.mainSection.classList.remove("hidden-xs");
 	}
@@ -170,15 +179,40 @@ function BrainNotes(pSettings) {
 	self.editNote = function() {
 		self.displayNoteTitle.setAttribute("contenteditable", "true");
 		self.displayNoteContent.setAttribute("contenteditable", "true");
+
 		self.panelEditable.classList.add("panel-editable-edit");
 
 		self.editDeleteGroup.classList.add('hide');
 		self.saveCancelGroup.classList.remove('hide');
 	}
 
+	self.clearDisplay = function () {
+		while (self.displayNoteTitle.firstChild) {
+			self.displayNoteTitle.removeChild(self.displayNoteTitle.firstChild);
+		}
+		
+		while (self.displayNoteContent.firstChild) {
+			self.displayNoteContent.removeChild(self.displayNoteContent.firstChild);
+		}
+	}
+
 	self.saveEdit = function() {
-		self.activeNote.title = self.displayNoteTitle.firstChild.nodeValue;
-		self.activeNote.content = self.displayNoteContent.firstChild.nodeValue;
+		if (self.activeNote == null) {
+			self.activeNote = new Note();
+		}
+
+		if (self.displayNoteTitle.firstChild) {
+			self.activeNote.title = self.displayNoteTitle.firstChild.nodeValue;
+		} else {
+			self.activeNote.title = "Untitled";
+		}
+		
+		if (self.displayNoteContent.firstChild) {
+			self.activeNote.content = self.displayNoteContent.firstChild.nodeValue;
+		} else {
+			self.activeNote.content = " ";
+		}
+		
 		self.activeNote.updateDisplayedTitle();
 	}
 
